@@ -1,6 +1,15 @@
 from flask import Flask, jsonify, request
-# исправить два импорта в один
+# импорт логики роута
+from api1 import api1_blueprint
+
+
+
+# инициалищация сервера
 app = Flask(__name__)
+
+
+# регистрация нового роутера из файла 
+app.register_blueprint(api1_blueprint)
 
 @app.route("/", methods=['GET', 'POST'] ) # я думаю что роуты должны быть по экранам, и каждую функцию писать под экран
 def responseExample():
@@ -9,7 +18,7 @@ def responseExample():
 
 # здесь твои вычисления 
 
-        return jsonify(ProbabilityOfPurchase = 3000, DatasetSizeClients=200 ....) # возвращаем на фронт данные
+        return jsonify(ProbabilityOfPurchase = 3000, DatasetSizeClients=200) # возвращаем на фронт данные
       else:
         return '<p>GET REQUEST<p>'
 
