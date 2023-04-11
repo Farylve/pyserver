@@ -1,0 +1,19 @@
+{   
+    "setSize": 849785,
+    "clientsWHighestPropensityToBuy": 6000,
+    "probabilityOfrandomPurchase": 0.05,
+    "probabilityOfPurchaseByTopClients": 12.7,
+    "probabilityUplift": 25.3,
+    "revenueUsd": 200,
+    "communicationCost": 3,
+    "conversionRateGrowth":2.1,
+    "conversionDepreciationRate":0.1,
+    "creditCardSales": 4249,
+    "salesUplift": 836.4,
+    "revenueUpliftMonth": 167283,
+    "revenueUpliftYear": 1200371,
+
+    "TABLES": {
+        "size2ProbFilePath": "cl_number_precision_test.xlsx"
+    }
+}
