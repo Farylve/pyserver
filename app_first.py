@@ -35,7 +35,7 @@ def first_screen():
         conversionDepreciationRate = input.get('conversionDepreciationRate')
 
 
-        clNumberProbPurch = pd.read_excel(config['TABLES']['size2ProbFilePath']) # Отсортирован по возрастанию cl_number
+        clNumberProbPurch = pd.read_pickle(config['TABLES']['size2ProbFilePath']) # Отсортирован по возрастанию cl_number
         clNumberProbPurch = clNumberProbPurch[clNumberProbPurch['cl_number']>=clientsWHighestPropensityToBuy]
         probabilityOfPurchaseByTopClients = clNumberProbPurch.head(1)['precision'].values[0]
 

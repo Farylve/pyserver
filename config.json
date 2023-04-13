@@ -1,7 +1,7 @@
 {   
     "setSize": 849785,
     "clientsWHighestPropensityToBuy": 6000,
-    "probabilityOfrandomPurchase": 0.05,
+    "probabilityOfrandomPurchase": 0.046,
     "probabilityOfPurchaseByTopClients": 12.7,
     "probabilityUplift": 25.3,
     "revenueUsd": 200,
@@ -14,6 +14,6 @@
     "revenueUpliftYear": 1200371,
 
     "TABLES": {
-        "size2ProbFilePath": "cl_number_precision_test.xlsx"
+        "size2ProbFilePath": "cl_number_precision_test.pkl"
     }
 }
