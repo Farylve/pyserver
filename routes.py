@@ -1,6 +1,6 @@
 
 from flask import Flask, jsonify, request, Blueprint
-# импорт логики роута
+
 
 import random
 import pandas as pd
@@ -61,7 +61,7 @@ def model_results_screen():
 
 
 
-@ab_results.route("/api/abResults", methods=['GET', 'POST'])
+@ab_results.route("/api/abResults", methods=['POST'])
 def ab_results_screen():
       if request.method == 'POST':
         input = request.get_json()
@@ -79,10 +79,17 @@ def ab_results_screen():
 
         randPvalue  = ab_results[ab_results['test_control']=='control_random'].p_value.values[0]
         topPvalue  = ab_results[ab_results['test_control']=='control_top_scores'].p_value.values[0]
+        response = {
+    'randContrGrSales': randContrGrSales,
+    'randTestGrSales': randTestGrSales,
+    'topContrGrSales': topContrGrSales,
+    'topTestGrSales': topTestGrSales,
+    'randPvalue': randPvalue,
+    'topPvalue': topPvalue
+}
 
-        return jsonify(randContrGrSales = randContrGrSales, randTestGrSales = randTestGrSales, 
-                       topContrGrSales = topContrGrSales, topTestGrSales = topTestGrSales,
-                       randPvalue = randPvalue, topPvalue = topPvalue)
+        return json.dumps(response, default=str)
+
       
 
 
@@ -109,7 +116,7 @@ def fin_effect_screen():
 
         communicationCost = input.get('communicationCost')
         revenueUsd = input.get('revenueUsd')
-        conversionDepreciationRate = conversionDepreciationRate.get('conversionDepreciationRate')
+        conversionDepreciationRate = input.get('conversionDepreciationRate')
         monProdSalesPilot = int(setSize*probRandPilot)
         monTopProdSalesUpliftPilot = int((probTopPilotTest-probTopPilot)*topClientsForAb)
         revUpliftMonthPilot = int(monTopProdSalesUpliftPilot*revenueUsd - topClientsForAb*communicationCost)
